@@ -1,0 +1,47 @@
+---
+title: "California Map with Wind Turbines"
+output: html_document
+---
+
+```{r}
+# Load required libraries
+library(mapdata)
+library(ggplot2)
+
+# Load the map data for U.S. states
+us_states <- map_data("state")
+
+# Filter out data for California
+california <- subset(us_states, region == "california")
+
+# Print the first few rows of the data to check the structure
+head(california)
+
+# Load the wind turbine data
+load("C:/Users/Lenovo/Downloads/wind_turbines.rda")  # Updated path
+
+# Check the structure of the wind_turbines dataset
+str(wind_turbines)
+
+# Filter wind turbines located in California
+wind_ca <- subset(wind_turbines, t_state == "CA")
+
+# Check if the filtering works
+head(wind_ca)
+
+# Plot the map of California using ggplot and geom_polygon
+ggplot(data = california, aes(x = long, y = lat, group = group)) +
+  geom_polygon(fill = "lightblue", color = "black") +
+  coord_fixed(ratio = 1.1) +  # Maintain aspect ratio for proper map display
+  theme_minimal() +
+  labs(title = "Map of California")
+
+# Plot the map with wind turbine locations using geom_point()
+ggplot(data = california, aes(x = long, y = lat)) +
+  geom_polygon(fill = "lightblue", color = "black") +  # State boundaries
+  geom_point(data = wind_ca, aes(x = xlong, y = ylat), color = "red", size = 2) +  # Wind turbine locations
+  coord_fixed(ratio = 1.1) + 
+  theme_minimal() +
+  labs(title = "California Map with Wind Turbine Locations")
+``` 
+    
