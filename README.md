@@ -20,4 +20,7 @@ This task involved visualizing election data on ArcGIS using the `2016elections.
 
 You can view the election map created in ArcGIS by clicking on the link below:
 
-[View Election Map Web App]([https://arcgis.com/apps/your-app-link](https://www.arcgis.com/apps/instant/basic/index.html?appid=7fe760baf3a44ee3be4a11400378109a))
+[View Election Map Web App]
+
+
+(https://www.arcgis.com/apps/instant/basic/index.html?appid=7fe760baf3a44ee3be4a11400378109a)
